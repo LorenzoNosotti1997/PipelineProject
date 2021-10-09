@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: pipeline-pipelineproject
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: pipeline-pipelineproject
+    spec:
+      containers:
+      - name: pipeline-pipelineproject
+        image: registry.gitlab.com/lorenzonosotti1997/pipelineproject .
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+        - name: registry.gitlab.com
